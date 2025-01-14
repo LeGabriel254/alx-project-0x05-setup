@@ -1,5 +1,4 @@
-import { error } from "console";
-import { useState, ReactNode, createContext, useContext } from "react";
+import { createContext, useContext, useState, ReactNode } from "react"
 
 interface CountContextProps {
   count: number
@@ -10,7 +9,8 @@ interface CountContextProps {
 export const CountContext = createContext<CountContextProps | undefined>(undefined)
 
 export const CountProvider = ({ children }: { children: ReactNode }) => {
-  const [count, setCount] = useState(0)
+
+  const [count, setCount] = useState<number>(0)
 
   const increment = () => setCount((count) => count + 1)
   const decrement = () => setCount((count) => count > 0 ? count - 1 : 0)
@@ -24,7 +24,6 @@ export const CountProvider = ({ children }: { children: ReactNode }) => {
 
 
 
-
 export const useCount = () => {
   const context = useContext(CountContext)
 
@@ -33,4 +32,4 @@ export const useCount = () => {
   }
 
   return context
-}
+};
