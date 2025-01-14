@@ -1,10 +1,10 @@
 import { error } from "console";
 import { useState,ReactNode, createContext,useContext } from "react";
 
-interface CounterContextProps{
+interface CounterContextProps {
   count:number
-  increment:() => void 
-  decrement: () => void
+  increment: () => void;
+  decrement: () => void,
 };
 
 export const CountContext = createContext<CounterContextProps | undefined>  (undefined)
